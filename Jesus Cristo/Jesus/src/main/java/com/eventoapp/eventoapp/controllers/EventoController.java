@@ -47,10 +47,10 @@ public class EventoController {
 	}
 	
 	@RequestMapping("/{id}") //@PageableDefault retorna 1 campo do banco
-	public ModelAndView dadosChurras(@PathVariable ("id") long id ) {
-		Churras churras = eventoRep.procId(id);		//Metodo passado no controller para fazer busca especifica
+	public ModelAndView detalhesChurras(@PathVariable ("id") long id ) {
+		Churras churras = eventoRep.findById(id);		//Metodo passado no controller para fazer busca especifica
 		
-		ModelAndView mv = new ModelAndView("detalhesEvento");
+		ModelAndView mv = new ModelAndView("detalhesChurras");
 		mv.addObject("eventos", churras);
 		return mv;
 		

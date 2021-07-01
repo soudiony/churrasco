@@ -9,8 +9,8 @@ import com.eventoapp.eventoapp.models.Churras;
 @Repository
 
 
-public interface EventoRepository extends JpaRepository<Churras, Long>{
-	Churras procId(long id); //instanciar em controller - busca
+public interface EventoRepository extends JpaRepository<Churras, String>{
+	Churras  findById (long id); //instanciar em controller - busca - findBy
 
 	
 

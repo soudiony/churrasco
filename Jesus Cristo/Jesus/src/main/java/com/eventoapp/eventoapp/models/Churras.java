@@ -11,7 +11,7 @@ import javax.persistence.Id;
 public class Churras {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) 
-	private Long id;
+	private long id;
 	
 	private String data;
 	private String horario;
@@ -41,11 +41,11 @@ public class Churras {
 				+ local + "]";
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
