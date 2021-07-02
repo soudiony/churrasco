@@ -12,49 +12,46 @@ import com.eventoapp.eventoapp.models.Churras;
 
 import com.eventoapp.eventoapp.repository.EventoRepository;
 
-
 @Controller
 
 public class EventoController {
-	
+
 	@Autowired
 	private EventoRepository eventoRep;
-	
+
 	@RequestMapping(value = "/CadastraReuniao", method = RequestMethod.GET)
 	public String form() {
 		return "Reuniao/formEvento";
 	}
-	
-	@RequestMapping(value = "/CadastraReuniao", method = RequestMethod.POST)  //Cadastra no Banco
+
+	@RequestMapping(value = "/CadastraReuniao", method = RequestMethod.POST) // Cadastra no Banco
 	public String form(Churras evento) {
-		
+
 		eventoRep.save(evento);
-		 return "Reuniao/formEvento";
-		
+		return "Reuniao/formEvento";
+
 	}
-	
-	
+
 	@RequestMapping("/eventos")
 	public ModelAndView listaEventos() {
-		System.out.println("dione..bora");
+
 		ModelAndView mv = new ModelAndView("index");
 		Iterable<Churras> eventos = eventoRep.findAll();
-		System.out.println("Lista-->" + eventos);
+
 		mv.addObject("eventos", eventos);
-		
+
 		System.out.println("mv na veia-->" + mv);
 		return mv;
 	}
-	
-	@RequestMapping("/{id}") //@PageableDefault retorna 1 campo do banco
-	public ModelAndView detalhesChurras(@PathVariable ("id") long id ) {
-		Churras churras = eventoRep.findById(id);		//Metodo passado no controller para fazer busca especifica
-		
-		ModelAndView mv = new ModelAndView("detalhesChurras");
+
+	@RequestMapping("/{id}") // @PageableDefault retorna 1 campo do banco
+	public ModelAndView detalhesChurras(@PathVariable("id") long id) {
+		Churras churras = eventoRep.findById(id); //Metodo passado no controller para fazer busca especifica
+
+		ModelAndView mv = new ModelAndView("Reuniao/detalhesChurras");
 		mv.addObject("eventos", churras);
 		return mv;
-		
+
 	}
-	
-	
+
 }
