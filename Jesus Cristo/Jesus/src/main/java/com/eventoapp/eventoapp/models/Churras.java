@@ -1,9 +1,12 @@
 package com.eventoapp.eventoapp.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -19,6 +22,14 @@ public class Churras {
 	
 	private String local;
 	
+	@OneToMany
+	private List<Brothers> quemfoi;
+	//1 churras para muitos convidados..
+	
+	
+	
+	
+	
 	
 	public String getLocal() {
 		return local;
@@ -32,9 +43,6 @@ public class Churras {
 		
 	}
 	
-	
-	
-
 	@Override
 	public String toString() {
 		return "Churras [id=" + id + ", data=" + data + ", horario=" + horario + ", reuniao=" + reuniao + ", local="

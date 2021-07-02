@@ -41,9 +41,9 @@
 				<td> <a th:href = "${(#mvc.url('EC#detalhesEvento').arg(0, evento.id)).build()}">  <span th:text="${evento.reuniao}"> </span> </a> </td>
 				-->
 				
-				<td> <a th:href="${(#mvc.url('EC#detalhesChurras').arg(0, evento.Id)).build()}"><span th:text="${evento.reuniao}"></span></a></td>
-				
-				<td><a th:href="${(#mvc.url('EC#detalhesChurras').arg(0, evento.Id)).build()}"> <span th:text="${evento.local}"> </span></a></td>
+				<td> <a th:href="${(#mvc.url('EC#detalhesChurras').arg(0, evento.Id)).build()}"><span th:text="${evento.reuniao}"> </span></a></td>
+			
+				<td> <a th:href="${(#mvc.url('EC#detalhesChurras').arg(0, evento.Id)).build()}"><span th:text="${evento.local}"> </span></a></td>
 				
 				<td><a th:href="${(#mvc.url('EC#detalhesChurras').arg(0, evento.Id)).build()}"> <span th:text="${evento.data}"> </span></a></td>
 				

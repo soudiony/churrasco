@@ -22,15 +22,15 @@
 	<!--Volta para a Lista de Eventos-->
 	<h2><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">cloud_done</i>Lista de Evento</a> </h2>
 	
-	<div th:each="eventos : ${churras}" class="container">			<!--"eventos", churras" mesmo do controller-->
+	<div th:each="mostar : ${eventos}" class="container">			<!--"churras" mesmo do controller-->
 
 			<div class="row">
-			<p><span th:text="${evento.reuniao}">	</span></p>
-			<p><span th:text="${evento.local}">		</span></p>
-			<p><span th:text="${evento.data}">		</span></p>
-			<p><span th:text="${evento.horario}">	</span></p>
+			<p>Evento: <span th:text="${mostar.reuniao}">	</span></p>
+			<p>Local: <span th:text="${mostar.local}">		</span></p>
+			<p>Data: <span th:text="${mostar.data}">		</span></p>
+			<p>Horário: <span th:text="${mostar.horario}">	</span></p>
 
-		</div>
+			</div>
 	</div>
 
 
