@@ -1,14 +1,13 @@
 package com.eventoapp.eventoapp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.eventoapp.eventoapp.models.Brothers;
+import com.eventoapp.eventoapp.models.Amigos;
 import com.eventoapp.eventoapp.models.Churras;
 import com.eventoapp.eventoapp.repository.BrothersRepository;
 import com.eventoapp.eventoapp.repository.EventoRepository;
@@ -59,10 +58,10 @@ public class EventoController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
-	public String detalhesChurrasPost(@PathVariable("id") long id, Brothers brothers) {
+	public String detalhesChurrasPost(@PathVariable("id") long id, Amigos amigos) {
 		Churras eventos = eventoRep.findById(id);
-		brothers.setChurras(eventos);
-		brothersRep.save(brothers);
+		amigos.setChurras(eventos);
+		brothersRep.save(amigos);
 
 		return "redirect:/{id}";
 

@@ -5,26 +5,31 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Brothers {
+public class Amigos {
 
-	@Id
-	private String rg;
 	private String convidados;
+	
+	@Id 
+	private Long rg;
 	
 	//Muitos convidados para 1 churrasco
 	@ManyToOne  
 	private Churras churras;
 
-	public String getRg() {
-		return rg;
-	}
-
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
+	
+	//Get e Set
+	
 
 	public String getConvidados() {
 		return convidados;
+	}
+
+	public Long getRg() {
+		return rg;
+	}
+
+	public void setRg(Long rg) {
+		this.rg = rg;
 	}
 
 	public void setConvidados(String convidados) {
@@ -39,6 +44,7 @@ public class Brothers {
 		this.churras = churras;
 	}
 
+	
 
 	
 	
