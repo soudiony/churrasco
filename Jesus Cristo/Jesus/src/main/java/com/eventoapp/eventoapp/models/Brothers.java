@@ -13,27 +13,33 @@ public class Brothers {
 	
 	//Muitos convidados para 1 churrasco
 	@ManyToOne  
-	private Churras quemvai;
-	
-	
+	private Churras churras;
+
 	public String getRg() {
 		return rg;
 	}
+
 	public void setRg(String rg) {
 		this.rg = rg;
 	}
+
 	public String getConvidados() {
 		return convidados;
 	}
+
 	public void setConvidados(String convidados) {
 		this.convidados = convidados;
 	}
-	public Churras getQuemvai() {
-		return quemvai;
+
+	public Churras getChurras() {
+		return churras;
 	}
-	public void setQuemvai(Churras quemvai) {
-		this.quemvai = quemvai;
+
+	public void setChurras(Churras churras) {
+		this.churras = churras;
 	}
+
+
 	
 	
 	
