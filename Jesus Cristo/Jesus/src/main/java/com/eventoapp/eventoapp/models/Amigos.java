@@ -1,15 +1,18 @@
 package com.eventoapp.eventoapp.models;
 
 import javax.persistence.Entity;
+import org.hibernate.validator.NotEmpty;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Amigos {
 
+	@NotEmpty
 	private String convidados;
 	
-	@Id 
+	@Id
+	@NotEmpty
 	private Long rg;
 	
 	//Muitos convidados para 1 churrasco

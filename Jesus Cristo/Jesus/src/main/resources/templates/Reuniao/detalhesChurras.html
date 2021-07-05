@@ -18,36 +18,65 @@
 
 <body>
 	<h5>EVENTO</h5>
-	
+
 	<!--Volta para a Lista de Eventos-->
-	<h2><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">cloud_done</i>Lista de Evento</a> </h2>
+	<h2><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">cloud_done</i>Lista de
+			Evento</a> </h2>
+
+	<div th:each="mostar : ${eventos}" class="container">
+		<!--"churras" mesmo do controller-->
+
+		<div class="row">
+			<p>Evento: <span th:text="${mostar.reuniao}"> </span></p>
+			<p>Local: <span th:text="${mostar.local}"> </span></p>
+			<p>Data: <span th:text="${mostar.data}"> </span></p>
+			<p>Horário: <span th:text="${mostar.horario}"> </span></p>
+
+		</div>
+
+		<form class="container" method="post">
+
+
+			<div class="input-field col s3">
+				Doc. RG: <input type="text" value="" name="rg" /> <!--	campo rg - igual a da entidade - Brother -->
+			</div>
+
+
+			<div class="input-field col s8">
+				Parceiro: : <input type="text" value="" name="convidados" />
+				<!-- campo name - igual a da entidade - Brother -->
+				</p>
+			</div>
+
+			<button class="waves-effect waves-light btn"><i class="material-icons left">cloud_done</i>
+				<type="submit">Add
+			</button>
+		</form>
+
+
+	</div>
+
+
+<div class="container" > <h5>Confirmados!</h5> </div>
 	
-	<div th:each="mostar : ${eventos}" class="container">			<!--"churras" mesmo do controller-->
+		
+	<div class="container" th:each="amigos : ${amigos}">
+			
+		<div class="row">
 
-			<div class="row">
-			<p>Evento: <span th:text="${mostar.reuniao}">	</span></p>
-			<p>Local: <span th:text="${mostar.local}">		</span></p>
-			<p>Data: <span th:text="${mostar.data}">		</span></p>
-			<p>Horário: <span th:text="${mostar.horario}">	</span></p>
+			<!-- Mostrar mesma Linha -->
 
+			<div class="input-field col s3">
+				<p><span th:text="${amigos.convidados}"> </span></p>
 			</div>
 			
-			<form class="container" method="post" >
-				
-		
-				<div class="input-field col s3">
-				Doc. RG: <input type="text" value="" name="rg" />    <!--	campo rg - igual a da entidade - Brother -->
-				</div>
-				
-				
-				<div class="input-field col s8">
-				Parceiro: : <input type="text" value="" name="convidado" />   <!-- campo name - igual a da entidade - Brother --></p>
-				</div>
-				
-				<button class="waves-effect waves-light btn"><i class="material-icons left">cloud_done</i><type="submit">Add</button>
-			</form> 
-			
-			
+
+			<div 
+				class="input-field col s3">
+				<p><span th:text="${amigos.rg}"> </span></p>
+			</div>
+
+		</div>
 	</div>
 
 

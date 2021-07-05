@@ -43,16 +43,20 @@ public class EventoController {
 
 		mv.addObject("eventos", eventos);
 
-		
 		return mv;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET) // @PageableDefault retorna 1 campo do banco
 	public ModelAndView detalhesChurras(@PathVariable("id") long id) {
-		Churras eventos = eventoRep.findById(id); // Metodo passado no controller para fazer busca especifica
+		Churras eventos = eventoRep.findById(id); // findBy.ID repository para fazer busca especifica
 
 		ModelAndView mv = new ModelAndView("Reuniao/detalhesChurras");
 		mv.addObject("eventos", eventos);
+
+		// Mostra na View os convidados os brody							// Iterable! Faz uma busca
+		Iterable<Amigos> mostraAmigos = brothersRep.findByChurras(eventos); // findBy.Churras! criei no repository
+		mv.addObject("amigos", mostraAmigos);
+
 		return mv;
 
 	}
