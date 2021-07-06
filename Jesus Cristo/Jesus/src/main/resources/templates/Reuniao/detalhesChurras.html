@@ -33,8 +33,10 @@
 			<p>Horário: <span th:text="${mostar.horario}"> </span></p>
 
 		</div>
+		
+		<th:block th:include="msgValid"> </th:block>
 
-		<form class="container" method="post">
+		<form class="container" method="post">	
 
 
 			<div class="input-field col s3">

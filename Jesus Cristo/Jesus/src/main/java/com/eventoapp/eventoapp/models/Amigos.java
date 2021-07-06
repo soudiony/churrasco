@@ -5,6 +5,7 @@ import org.hibernate.validator.NotEmpty;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+
 @Entity
 public class Amigos {
 
@@ -12,7 +13,6 @@ public class Amigos {
 	private String convidados;
 	
 	@Id
-	@NotEmpty
 	private Long rg;
 	
 	//Muitos convidados para 1 churrasco

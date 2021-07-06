@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
+import javax.validation.constraints.NotEmpty;
+
 @Entity
 public class Churras {
 	
@@ -18,6 +21,8 @@ public class Churras {
 	
 	private String data;
 	private String horario;
+	
+	@NotEmpty
 	private String reuniao;
 	
 	private String local;

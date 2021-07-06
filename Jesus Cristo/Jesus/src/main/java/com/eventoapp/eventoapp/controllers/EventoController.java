@@ -1,11 +1,20 @@
 package com.eventoapp.eventoapp.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
+
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.eventoapp.eventoapp.models.Amigos;
 import com.eventoapp.eventoapp.models.Churras;
@@ -28,9 +37,12 @@ public class EventoController {
 	}
 
 	@RequestMapping(value = "/CadastraReuniao", method = RequestMethod.POST) // Cadastra no Banco
-	public String form(Churras evento) {
-
-		eventoRep.save(evento);
+	public String form(@Valid Churras churras, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()){
+			attributes.addFlashAttribute("mensagem", "Houve Errs");
+			return "Reuniao/formEvento";
+		}
+		eventoRep.save(churras);
 		return "Reuniao/formEvento";
 
 	}
@@ -59,16 +71,22 @@ public class EventoController {
 
 		return mv;
 
+
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
-	public String detalhesChurrasPost(@PathVariable("id") long id, Amigos amigos) {
+	public String detalhesChurrasPost(@PathVariable("id") long id, @Valid Amigos amigos, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "Verifique os Campos");
+			return "redirect:/{id}";
+		} 
+		
 		Churras eventos = eventoRep.findById(id);
 		amigos.setChurras(eventos);
 		brothersRep.save(amigos);
-
+		attributes.addFlashAttribute("mensagem", "Brody cadastrado com sucesso.");
 		return "redirect:/{id}";
-
-	}
+		}
+	
 
 }
